@@ -14,4 +14,7 @@ module.exports = function(app){
 
     app.route('/add_user')
     .post(jsonku.addData_user);
+
+    app.route('/put_user')
+    .post(jsonku.putData_user);
 }
