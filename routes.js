@@ -20,4 +20,7 @@ module.exports = function(app){
 
     app.route('/delete_mhs')
     .delete(jsonku.delete_mhs);
+
+    app.route('/get_matakuliah')
+    .get(jsonku.get_matakuliah);
 }
