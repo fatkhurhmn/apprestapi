@@ -17,3 +17,33 @@ exports.getdata_user = function(req, res){
         };
     });
 };
+
+//berdasar id
+exports.getdata_id = function(req, res){
+    let id = req.params.id;
+    connection.query("SELECT * FROM pengguna WHERE id_user = ?", [id], function(error, rows, fields){
+        if(error){
+            console.log(error);
+        }else{
+            response.ok(rows, res);
+        };
+    });
+}
+
+//menambahkan data pengguna
+exports.addData_user = function(req, res){
+    var name = req.body.name;
+    var email = req.body.email;
+    var password = req.body.password;
+    var membership = req.body.membership;
+    var status = req.body.status;
+    var role = req.body.role;
+
+    connection.query("INSERT INTO pengguna (name, email, password, membership, status, role) VALUES(?,?,?,?,?,?)", [name, email, password, membership, status, role], function (error, rows, fields){
+        if(error){
+            console.log(error);
+        }else{
+            response.ok("Berhasil menambahkan data", res);
+        }
+    })
+}
