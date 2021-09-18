@@ -6,18 +6,18 @@ module.exports = function(app){
     app.route('/')
     .get(jsonku.index);
 
-    app.route('/tampil')
-    .get(jsonku.getdata_user);
+    app.route('/get_mhs')
+    .get(jsonku.get_mhs);
 
-    app.route('/tampil/:id')
-    .get(jsonku.getdata_id);
+    app.route('/get_mhs/:id')
+    .get(jsonku.get_mhs_id);
 
-    app.route('/add_user')
-    .post(jsonku.addData_user);
+    app.route('/add_mhs')
+    .post(jsonku.add_mhs);
 
-    app.route('/put_user')
-    .post(jsonku.putData_user);
+    app.route('/put_mhs')
+    .put(jsonku.put_mhs);
 
-    app.route('/delete_user')
-    .delete(jsonku.delete_user);
+    app.route('/delete_mhs')
+    .delete(jsonku.delete_mhs);
 }

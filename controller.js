@@ -8,8 +8,8 @@ exports.index = function (req, res) {
 };
 
 // menampilkan semua data 
-exports.getdata_user = function (req, res) {
-    connection.query("SELECT * FROM pengguna", function (error, rows, fields) {
+exports.get_mhs = function (req, res) {
+    connection.query("SELECT * FROM mahasiswa", function (error, rows, fields) {
         if (error) {
             console.log(error);
         } else {
@@ -19,9 +19,9 @@ exports.getdata_user = function (req, res) {
 };
 
 //berdasar id
-exports.getdata_id = function (req, res) {
+exports.get_mhs_id = function (req, res) {
     let id = req.params.id;
-    connection.query("SELECT * FROM pengguna WHERE id_user = ?", [id], function (error, rows, fields) {
+    connection.query("SELECT * FROM mahasiswa WHERE id_mhs = ?", [id], function (error, rows, fields) {
         if (error) {
             console.log(error);
         } else {
@@ -30,16 +30,13 @@ exports.getdata_id = function (req, res) {
     });
 }
 
-//menambahkan data pengguna
-exports.addData_user = function (req, res) {
-    var name = req.body.name;
-    var email = req.body.email;
-    var password = req.body.password;
-    var membership = req.body.membership;
-    var status = req.body.status;
-    var role = req.body.role;
+//menambahkan data mahasiswa
+exports.add_mhs = function (req, res) {
+    var nama = req.body.nama;
+    var nim = req.body.nim;
+    var jurusan = req.body.jurusan;
 
-    connection.query("INSERT INTO pengguna (name, email, password, membership, status, role) VALUES(?,?,?,?,?,?)", [name, email, password, membership, status, role], function (error, rows, fields) {
+    connection.query("INSERT INTO mahasiswa (nama, nim, jurusan) VALUES(?,?,?)", [nama, nim, jurusan], function (error, rows, fields) {
         if (error) {
             console.log(error);
         } else {
@@ -49,17 +46,14 @@ exports.addData_user = function (req, res) {
 }
 
 //ubah data berdasar id
-exports.putData_user = function (req, res) {
-    var id = req.body.id_user;
-    var name = req.body.name;
-    var email = req.body.email;
-    var password = req.body.password;
-    var membership = req.body.membership;
-    var status = req.body.status;
-    var role = req.body.role;
+exports.put_mhs = function (req, res) {
+    var id = req.body.id_mhs;
+    var nama = req.body.nama;
+    var nim = req.body.nim;
+    var jurusan = req.body.jurusan;
 
-    var query = "UPDATE pengguna SET name=?, email=?, password=?, membership=?, status=?, role=? WHERE id_user = ?";
-    connection.query(query, [name, email, password, membership, status, role, id], function (error, rows, fields) {
+    var query = "UPDATE mahasiswa SET nama=?, nim=?, jurusan=? WHERE id_mhs=?";
+    connection.query(query, [nama, nim, jurusan, id], function (error, rows, fields) {
         if (error) {
             console.log(error);
         } else {
@@ -68,11 +62,10 @@ exports.putData_user = function (req, res) {
     })
 }
 
-//hapus data pengguna
-//berdasar id
-exports.delete_user = function (req, res) {
-    let id = req.body.id_user;
-    connection.query("DELETE FROM pengguna WHERE id_user=?", [id], function (error, rows, fields) {
+//hapus data mahasiswa
+exports.delete_mhs = function (req, res) {
+    let id = req.body.id_mhs;
+    connection.query("DELETE FROM mahasiswa WHERE id_mhs=?", [id], function (error, rows, fields) {
         if (error) {
             console.log(error);
         } else {

@@ -6,7 +6,7 @@ const koneksi = mysql.createConnection({
     host:'localhost',
     user:'root',
     password:'',
-    database:'db_ews',
+    database:'db_mahasiswa',
     port:3307
 })
 
