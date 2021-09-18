@@ -9,8 +9,12 @@ const koneksi = mysql.createConnection({
     database:'db_ews'
 })
 
+
+
 koneksi.connect((err)=>{
-    if(err) throw err;
+    if(err){
+        console.log("Error", err);
+    }
     console.log("Mysql terkoneksi");
 });
 
