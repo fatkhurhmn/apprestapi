@@ -10,6 +10,6 @@ app.use(express.json());
 var routes = require('./routes');
 routes(app);
 
-app.listen(3000, () => {
-    console.log(`Server started on 3000`);
+app.listen(3307, () => {
+    console.log(`Server started on 3307`);
 });
