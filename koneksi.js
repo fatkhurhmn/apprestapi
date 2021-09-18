@@ -6,7 +6,8 @@ const koneksi = mysql.createConnection({
     host:'localhost',
     user:'root',
     password:'',
-    database:'db_ews'
+    database:'db_ews',
+    port:3308
 })
 
 
@@ -14,6 +15,7 @@ const koneksi = mysql.createConnection({
 koneksi.connect((err)=>{
     if(err){
         console.log("Error", err);
+        throw err;
     }
     console.log("Mysql terkoneksi");
 });
