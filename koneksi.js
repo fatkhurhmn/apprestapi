@@ -5,7 +5,7 @@ var mysql = require('mysql');
 const koneksi = mysql.createConnection({
     host:'localhost',
     user:'root',
-    password:'',
+    password:'kukuruyu',
     database:'db_ews',
     port:3308
 })
