@@ -67,3 +67,16 @@ exports.putData_user = function (req, res) {
         }
     })
 }
+
+//hapus data pengguna
+//berdasar id
+exports.delete_user = function (req, res) {
+    let id = req.body.id_user;
+    connection.query("DELETE FROM pengguna WHERE id_user=?", [id], function (error, rows, fields) {
+        if (error) {
+            console.log(error);
+        } else {
+            response.ok("Berhasil menghapus data", res);
+        };
+    });
+}
