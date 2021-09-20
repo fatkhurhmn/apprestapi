@@ -96,3 +96,7 @@ exports.login = function (req, res) {
         }
     })
 }
+
+exports.halaman_rahasia = function(req, res){
+    response.ok("Halaman iini hanya untuk user dengan role = 2", res)
+}
